@@ -2838,115 +2838,6 @@ feature:                  D' --- E'
   </div>
 </div>
 
-<!-- PAGE: COMPLETE WORKFLOW -->
-<div class="page" id="page-workflow">
-  <h1>Complete Workflow Example</h1>
-  
-  <p>Let's see how our cricket team uses Git and GitHub for their entire project from start to finish.</p>
-  
-  <h2 id="workflow-day1">Day 1: Project Setup (Gian)</h2>
-  
-  <pre><code><span class="comment"># Create project folder</span>
-<span class="command">mkdir school-project</span>
-<span class="command">cd school-project</span>
-
-<span class="comment"># Initialize Git</span>
-<span class="command">git init</span>
-
-<span class="comment"># Create initial files</span>
-<span class="comment"># (Use text editor to create readme.txt)</span>
-
-<span class="command">git add .</span>
-<span class="command">git commit -m "Initial project setup"</span>
-
-<span class="comment"># Create repository on GitHub</span>
-<span class="comment"># Then connect it</span>
-<span class="command">git remote add origin https://github.com/gian-doraemon/school-project.git</span>
-<span class="command">git push -u origin main</span></code></pre>
-  
-  <h2 id="workflow-day2">Day 2: Nobita Joins (Nobita)</h2>
-  
-  <pre><code><span class="comment"># Clone the project</span>
-<span class="command">git clone https://github.com/gian-doraemon/school-project.git</span>
-<span class="command">cd school-project</span>
-
-<span class="comment"># Create feature branch</span>
-<span class="command">git checkout -b feature-login</span>
-
-<span class="comment"># Work on login feature</span>
-<span class="comment"># Create login.txt</span>
-
-<span class="command">git add login.txt</span>
-<span class="command">git commit -m "Add login page"</span>
-
-<span class="comment"># Push branch to GitHub</span>
-<span class="command">git push -u origin feature-login</span>
-
-<span class="comment"># Create Pull Request on GitHub</span></code></pre>
-  
-  <h2 id="workflow-day3">Day 3: Suneo Joins (Suneo)</h2>
-  
-  <pre><code><span class="comment"># Clone the project</span>
-<span class="command">git clone https://github.com/gian-doraemon/school-project.git</span>
-<span class="command">cd school-project</span>
-
-<span class="comment"># Create his feature branch</span>
-<span class="command">git checkout -b feature-database</span>
-
-<span class="comment"># Work on database</span>
-<span class="comment"># Create database.txt</span>
-
-<span class="command">git add database.txt</span>
-<span class="command">git commit -m "Add database connection"</span>
-<span class="command">git push -u origin feature-database</span></code></pre>
-  
-  <h2 id="workflow-day4">Day 4: Merging Features (Gian)</h2>
-  
-  <pre><code><span class="comment"># Review and merge Nobita's PR on GitHub</span>
-
-<span class="comment"># Pull latest changes</span>
-<span class="command">git checkout main</span>
-<span class="command">git pull</span>
-
-<span class="comment"># Review and merge Suneo's PR on GitHub</span>
-
-<span class="comment"># Pull again</span>
-<span class="command">git pull</span>
-
-<span class="comment"># Now main has both features!</span></code></pre>
-  
-  <h2 id="workflow-daily">Daily Workflow for Everyone</h2>
-  
-  <pre><code><span class="comment"># Start of day</span>
-<span class="command">git checkout main</span>
-<span class="command">git pull</span>
-
-<span class="comment"># Create/switch to feature branch</span>
-<span class="command">git checkout -b feature-name</span>
-
-<span class="comment"># Work, work, work...</span>
-
-<span class="comment"># Save progress</span>
-<span class="command">git add .</span>
-<span class="command">git commit -m "Describe changes"</span>
-
-<span class="comment"># Push to GitHub</span>
-<span class="command">git push</span>
-
-<span class="comment"># Create Pull Request when ready</span>
-
-<span class="comment"># After PR is merged</span>
-<span class="command">git checkout main</span>
-<span class="command">git pull</span>
-<span class="command">git branch -d feature-name</span></code></pre>
-  
-  <div class="page-nav">
-    <a class="page-nav-btn" onclick="showPage('rebase')">Previous: Git Rebase</a>
-    <a class="page-nav-btn" onclick="showPage('cheatsheet')">Next: Command Cheatsheet</a>
-  </div>
-</div>
-
-
 <!-- PAGE: CHEATSHEET -->
 <div class="page" id="page-cheatsheet">
   <h1>Git Command Cheatsheet</h1>
@@ -3143,7 +3034,6 @@ const pages = {
   'forking': 'page-forking',
   'stash': 'page-stash',
   'rebase': 'page-rebase',
-  'workflow': 'page-workflow',
   'cheatsheet': 'page-cheatsheet'
 };
 
