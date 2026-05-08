@@ -717,7 +717,6 @@ strong {
     <div class="nav-section-title">Advanced Topics</div>
     <a class="nav-link" onclick="showPage('stash')">Git Stash</a>
     <a class="nav-link" onclick="showPage('rebase')">Git Rebase</a>
-    <a class="nav-link" onclick="showPage('tags')">Tags & Releases</a>
   </div>
   
   <div class="nav-section">
@@ -2835,52 +2834,6 @@ feature:                  D' --- E'
   
   <div class="page-nav">
     <a class="page-nav-btn" onclick="showPage('stash')">Previous: Git Stash</a>
-    <a class="page-nav-btn" onclick="showPage('tags')">Next: Tags & Releases</a>
-  </div>
-</div>
-
-<!-- PAGE: TAGS -->
-<div class="page" id="page-tags">
-  <h1>Tags and Releases</h1>
-  
-  <p>Tags mark specific points in history as important - usually for releases.</p>
-  
-  <h2 id="tags-create">Creating a Tag</h2>
-  
-  <pre><code><span class="comment"># Create a tag</span>
-<span class="command">git tag v1.0</span>
-
-<span class="comment"># Create annotated tag with message</span>
-<span class="command">git tag -a v1.0 -m "First release"</span>
-
-<span class="comment"># Push tag to GitHub</span>
-<span class="command">git push origin v1.0</span>
-
-<span class="comment"># Push all tags</span>
-<span class="command">git push --tags</span></code></pre>
-  
-  <h2 id="tags-list">Listing Tags</h2>
-  
-  <pre><code><span class="command">git tag</span>
-
-<span class="output">v1.0
-v1.1
-v2.0</span></code></pre>
-  
-  <h2 id="tags-example">Example: Project Releases</h2>
-  
-  <pre><code><span class="comment"># Gian releases version 1.0</span>
-<span class="command">git tag -a v1.0 -m "Initial release"</span>
-<span class="command">git push --tags</span>
-
-<span class="comment"># Later, version 2.0</span>
-<span class="command">git tag -a v2.0 -m "Major update"</span>
-<span class="command">git push --tags</span></code></pre>
-  
-  <p>On GitHub, these tags appear as Releases that users can download.</p>
-  
-  <div class="page-nav">
-    <a class="page-nav-btn" onclick="showPage('rebase')">Previous: Git Rebase</a>
     <a class="page-nav-btn" onclick="showPage('workflow')">Next: Complete Workflow</a>
   </div>
 </div>
@@ -2988,7 +2941,7 @@ v2.0</span></code></pre>
 <span class="command">git branch -d feature-name</span></code></pre>
   
   <div class="page-nav">
-    <a class="page-nav-btn" onclick="showPage('tags')">Previous: Tags & Releases</a>
+    <a class="page-nav-btn" onclick="showPage('rebase')">Previous: Git Rebase</a>
     <a class="page-nav-btn" onclick="showPage('cheatsheet')">Next: Command Cheatsheet</a>
   </div>
 </div>
@@ -3084,8 +3037,6 @@ v2.0</span></code></pre>
       <tr><td><code>git stash pop</code></td><td>Apply stashed changes</td></tr>
       <tr><td><code>git stash list</code></td><td>List stashes</td></tr>
       <tr><td><code>git rebase main</code></td><td>Rebase onto main</td></tr>
-      <tr><td><code>git tag v1.0</code></td><td>Create tag</td></tr>
-      <tr><td><code>git push --tags</code></td><td>Push tags</td></tr>
     </tbody>
   </table>
   
@@ -3192,7 +3143,6 @@ const pages = {
   'forking': 'page-forking',
   'stash': 'page-stash',
   'rebase': 'page-rebase',
-  'tags': 'page-tags',
   'workflow': 'page-workflow',
   'cheatsheet': 'page-cheatsheet'
 };
