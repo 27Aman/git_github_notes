@@ -134,8 +134,10 @@ body {
 }
 
 .nav-link:hover {
-  background: var(--sidebar-hover);
-  padding-left: 25px;
+  background: transparent;
+  border-left: 3px solid var(--link-color);
+  padding-left: 22px;
+  color: #ffffff;
 }
 
 .nav-link.active {
@@ -251,6 +253,7 @@ li {
   padding: 15px 20px;
   margin: 20px 0;
   border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .warning-box {
@@ -259,6 +262,7 @@ li {
   padding: 15px 20px;
   margin: 20px 0;
   border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .success-box {
@@ -267,6 +271,7 @@ li {
   padding: 15px 20px;
   margin: 20px 0;
   border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .danger-box {
@@ -275,6 +280,34 @@ li {
   padding: 15px 20px;
   margin: 20px 0;
   border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover: border highlight only, no background change */
+.info-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--info-border);
+}
+
+.warning-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--warning-border);
+}
+
+.success-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--success-border);
+}
+
+.danger-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--danger-border);
+}
+
+.team-member:hover {
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 2px var(--link-color);
+  transform: translateY(-3px);
 }
 
 .team-grid {
@@ -287,9 +320,10 @@ li {
 .team-member {
   text-align: center;
   padding: 20px;
-  background: #f8f9fa;
+  background: var(--team-bg);
   border-radius: 8px;
-  border: 2px solid #e9ecef;
+  border: 2px solid var(--team-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .team-member img {
@@ -331,7 +365,8 @@ th {
 }
 
 tr:hover {
-  background: #f8f9fa;
+  background: transparent;
+  outline: 1px solid var(--link-color);
 }
 
 .page-nav {
