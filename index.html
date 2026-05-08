@@ -703,6 +703,7 @@ strong {
     <a class="nav-link" onclick="showPage('github-intro')">What is GitHub</a>
     <a class="nav-link" onclick="showPage('github-account')">Creating Account</a>
     <a class="nav-link" onclick="showPage('github-repo')">Creating Repository</a>
+    <a class="nav-link" onclick="showPage('ssh-setup')">HTTPS vs SSH</a>
     <a class="nav-link" onclick="showPage('push-pull')">Push and Pull</a>
   </div>
   
@@ -2297,11 +2298,11 @@ Gian's Computer          GitHub.com          Nobita's Computer
 <!-- PAGE: CREATING GITHUB ACCOUNT -->
 <div class="page" id="page-github-account">
   <h1>Creating a GitHub Account</h1>
-  
+
   <p>Let's create your GitHub account. It is free and takes only a few minutes.</p>
-  
+
   <h2 id="github-account-signup">Sign Up Steps</h2>
-  
+
   <ol>
     <li>Open your web browser and go to <code>https://github.com</code></li>
     <li>Click the <strong>Sign up</strong> button in the top right corner</li>
@@ -2313,37 +2314,100 @@ Gian's Computer          GitHub.com          Nobita's Computer
     <li>Enter that code on the GitHub website</li>
     <li>Your account is ready!</li>
   </ol>
-  
+
   <div class="info-box">
     <h4>Choosing Your Username</h4>
     <p>Your GitHub username is visible to everyone including future employers and colleges. Choose wisely:</p>
     <ul>
-      <li>Use your real name or a professional variation: <code>gautamgambhir</code> or <code>gautam-g</code></li>
+      <li>Use your real name or a professional variation: <code>nobita-nobi</code> or <code>nobitadev</code></li>
       <li>Avoid random numbers or funny words</li>
       <li>Keep it simple and memorable</li>
     </ul>
   </div>
-  
+
+  <h2 id="github-account-gitconfig">How git config Connects to GitHub</h2>
+
+  <p>Remember when you ran these two commands during First-Time Setup?</p>
+
+  <pre><code><span class="command">git config --global user.name "Nobita Nobi"</span>
+<span class="command">git config --global user.email "nobita@doraemon.com"</span></code></pre>
+
+  <p>These are not just labels. They play a very specific role when you work with GitHub.</p>
+
+  <h3>What user.name does</h3>
+  <p>Every commit you make is stamped with this name. When Nobita pushes code to GitHub, every commit in the repository shows <strong>"Nobita Nobi"</strong> as the author. This is how teammates know who wrote what.</p>
+
+  <div class="diagram">
+<pre>
+git log --oneline on GitHub shows:
+
+a1b2c3d  Nobita Nobi   "Add login page"       2 hours ago
+9e8f7g6  Gian          "Initial commit"       1 day ago
+5h4i3j2  Suneo         "Add database file"    2 days ago
+
+The name comes from: git config --global user.name
+</pre>
+  </div>
+
+  <h3>What user.email does</h3>
+  <p>The email in git config must match the email you used to sign up on GitHub. This is how GitHub links your commits to your GitHub profile. If the emails do not match, your commits will not show up on your GitHub profile graph.</p>
+
+  <div class="warning-box">
+    <h4>Important: Email Must Match</h4>
+    <p>Nobita signed up on GitHub with <code>nobita@doraemon.com</code>. So his git config must also use the same email:</p>
+    <pre><code><span class="command">git config --global user.email "nobita@doraemon.com"</span></code></pre>
+    <p>If he uses a different email in git config, his commits will appear as "ghost commits" — not linked to his GitHub account.</p>
+  </div>
+
+  <h3>Verify Your Config</h3>
+  <pre><code><span class="command">git config --list</span>
+
+<span class="output">user.name=Nobita Nobi
+user.email=nobita@doraemon.com</span></code></pre>
+
   <h2 id="github-account-profile">Setting Up Your Profile</h2>
-  
+
   <ol>
     <li>Click your profile picture in the top-right corner</li>
     <li>Go to <strong>Settings</strong></li>
     <li>Add your full name</li>
-    <li>Add a short bio (example: "Class 10 student learning programming")</li>
+    <li>Add a short bio</li>
     <li>Optionally add a profile picture</li>
   </ol>
-  
-  <p>A complete profile looks more professional and trustworthy.</p>
-  
+
   <h2 id="github-account-example">Our Team's Accounts</h2>
-  
-  <ul>
-    <li><strong>Gian:</strong> Username <code>gian-doraemon</code></li>
-    <li><strong>Nobita:</strong> Username <code>nobita-nobi</code></li>
-    <li><strong>Suneo:</strong> Username <code>suneo-honekawa</code></li>
-  </ul>
-  
+
+  <table>
+    <thead>
+      <tr>
+        <th>Character</th>
+        <th>GitHub Username</th>
+        <th>git config user.name</th>
+        <th>git config user.email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Gian</td>
+        <td><code>gian-doraemon</code></td>
+        <td><code>Gian</code></td>
+        <td><code>gian@doraemon.com</code></td>
+      </tr>
+      <tr>
+        <td>Nobita</td>
+        <td><code>nobita-nobi</code></td>
+        <td><code>Nobita Nobi</code></td>
+        <td><code>nobita@doraemon.com</code></td>
+      </tr>
+      <tr>
+        <td>Suneo</td>
+        <td><code>suneo-honekawa</code></td>
+        <td><code>Suneo</code></td>
+        <td><code>suneo@doraemon.com</code></td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="page-nav">
     <a class="page-nav-btn" onclick="showPage('github-intro')">Previous: What is GitHub</a>
     <a class="page-nav-btn" onclick="showPage('github-repo')">Next: Creating Repository</a>
@@ -2423,6 +2487,204 @@ Receiving objects: 100% (10/10), done.</span>
   
   <div class="page-nav">
     <a class="page-nav-btn" onclick="showPage('github-account')">Previous: Creating Account</a>
+    <a class="page-nav-btn" onclick="showPage('ssh-setup')">Next: HTTPS vs SSH</a>
+  </div>
+</div>
+
+<!-- PAGE: HTTPS VS SSH -->
+<div class="page" id="page-ssh-setup">
+  <h1>HTTPS vs SSH</h1>
+
+  <p>When you create a repository on GitHub and want to connect it to your computer, GitHub gives you two types of links. Understanding the difference is important.</p>
+
+  <h2 id="ssh-links">The Two Links GitHub Gives You</h2>
+
+  <p>After creating a repository, GitHub shows you two URLs:</p>
+
+  <div class="diagram">
+<pre>
+HTTPS link:
+https://github.com/nobita-nobi/school-project.git
+
+SSH link:
+git@github.com:nobita-nobi/school-project.git
+</pre>
+  </div>
+
+  <h2 id="ssh-comparison">HTTPS vs SSH: The Difference</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Point</th>
+        <th>HTTPS</th>
+        <th>SSH</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>How it looks</td>
+        <td><code>https://github.com/...</code></td>
+        <td><code>git@github.com:...</code></td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>Username + Personal Access Token every time</td>
+        <td>SSH key pair — set up once, never again</td>
+      </tr>
+      <tr>
+        <td>Ease of setup</td>
+        <td>Easy — no setup needed</td>
+        <td>Takes 5 minutes to set up once</td>
+      </tr>
+      <tr>
+        <td>Daily use</td>
+        <td>Asks for credentials on every push</td>
+        <td>Never asks again after setup</td>
+      </tr>
+      <tr>
+        <td>Security</td>
+        <td>Good</td>
+        <td>Better — key-based authentication</td>
+      </tr>
+      <tr>
+        <td>Recommended for</td>
+        <td>Quick one-time use</td>
+        <td>Daily development work</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="success-box">
+    <h4>Which One to Use?</h4>
+    <p>Use <strong>SSH</strong> for your daily work. You set it up once and Git never asks for your password again. Every professional developer uses SSH.</p>
+    <p>Use <strong>HTTPS</strong> only when you are on someone else's computer and do not want to set up SSH keys there.</p>
+  </div>
+
+  <h2 id="ssh-concept">How SSH Works: Private and Public Key</h2>
+
+  <p>SSH uses a pair of keys — like a lock and a key:</p>
+
+  <div class="diagram">
+<pre>
+Your Computer                        GitHub
+--------------                       ------
+Private Key                          Public Key
+(stays on your                       (you upload this
+ computer, never                      to GitHub once)
+ share this)
+      |                                    |
+      |-------- encrypted handshake -------|
+      |                                    |
+Git says: "I have the private key"
+GitHub checks: "Does it match the public key I have?"
+GitHub says: "Yes, you are allowed in."
+
+No password needed. Ever.
+</pre>
+  </div>
+
+  <ul>
+    <li><strong>Private key</strong> — stays on your computer only. Never share it with anyone. Think of it as your house key.</li>
+    <li><strong>Public key</strong> — you give this to GitHub. Think of it as the lock on your door. Anyone can see the lock, but only your key opens it.</li>
+  </ul>
+
+  <h2 id="ssh-generate">Generating Your SSH Key</h2>
+
+  <p>Run this command in your terminal. Replace the email with your GitHub email:</p>
+
+  <pre><code><span class="command">ssh-keygen -t ed25519 -C "nobita@doraemon.com"</span></code></pre>
+
+  <p>Terminal will ask three questions. Press <strong>Enter</strong> for all three to accept defaults:</p>
+
+  <pre><code><span class="output">Enter file in which to save the key: </span><span class="comment">(press Enter)</span>
+<span class="output">Enter passphrase: </span><span class="comment">(press Enter)</span>
+<span class="output">Enter same passphrase again: </span><span class="comment">(press Enter)</span>
+
+<span class="output">Your identification has been saved in /Users/nobita/.ssh/id_ed25519
+Your public key has been saved in /Users/nobita/.ssh/id_ed25519.pub</span></code></pre>
+
+  <p>Two files are now created in your <code>.ssh</code> folder:</p>
+  <ul>
+    <li><code>id_ed25519</code> — your private key. Never share this.</li>
+    <li><code>id_ed25519.pub</code> — your public key. This goes to GitHub.</li>
+  </ul>
+
+  <h2 id="ssh-agent">Add Key to SSH Agent</h2>
+
+  <pre><code><span class="comment"># Start the SSH agent</span>
+<span class="command">eval "$(ssh-agent -s)"</span>
+
+<span class="output">Agent pid 12345</span>
+
+<span class="comment"># Add your private key to the agent</span>
+<span class="command">ssh-add ~/.ssh/id_ed25519</span>
+
+<span class="output">Identity added: /Users/nobita/.ssh/id_ed25519</span></code></pre>
+
+  <h2 id="ssh-copy">Copy Your Public Key</h2>
+
+  <p>Print the public key so you can copy it:</p>
+
+  <pre><code><span class="comment"># Mac / Linux</span>
+<span class="command">cat ~/.ssh/id_ed25519.pub</span>
+
+<span class="output">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA... nobita@doraemon.com</span></code></pre>
+
+  <p>Select the entire output and copy it.</p>
+
+  <h2 id="ssh-github">Add Public Key to GitHub</h2>
+
+  <ol>
+    <li>Go to <code>https://github.com</code> and log in</li>
+    <li>Click your profile picture → <strong>Settings</strong></li>
+    <li>In the left menu click <strong>SSH and GPG keys</strong></li>
+    <li>Click <strong>New SSH key</strong></li>
+    <li>Give it a title like <code>My Laptop</code></li>
+    <li>Paste your public key in the Key field</li>
+    <li>Click <strong>Add SSH key</strong></li>
+  </ol>
+
+  <h2 id="ssh-test">Test the Connection</h2>
+
+  <pre><code><span class="command">ssh -T git@github.com</span>
+
+<span class="output">Hi nobita-nobi! You've successfully authenticated,
+but GitHub does not provide shell access.</span></code></pre>
+
+  <p>If you see your GitHub username in that message, SSH is working perfectly.</p>
+
+  <h2 id="ssh-use">Using SSH When Cloning or Adding Remote</h2>
+
+  <p>Now always use the SSH link instead of HTTPS:</p>
+
+  <pre><code><span class="comment"># Clone using SSH (not HTTPS)</span>
+<span class="command">git clone git@github.com:nobita-nobi/school-project.git</span>
+
+<span class="comment"># Add remote using SSH</span>
+<span class="command">git remote add origin git@github.com:nobita-nobi/school-project.git</span></code></pre>
+
+  <p>From now on, every <code>git push</code> and <code>git pull</code> will work without asking for a password.</p>
+
+  <h2 id="ssh-switch">Switch Existing Repo from HTTPS to SSH</h2>
+
+  <p>If you already added a remote with HTTPS and want to switch to SSH:</p>
+
+  <pre><code><span class="comment"># Check current remote</span>
+<span class="command">git remote -v</span>
+<span class="output">origin  https://github.com/nobita-nobi/school-project.git (fetch)
+origin  https://github.com/nobita-nobi/school-project.git (push)</span>
+
+<span class="comment"># Change it to SSH</span>
+<span class="command">git remote set-url origin git@github.com:nobita-nobi/school-project.git</span>
+
+<span class="comment"># Verify</span>
+<span class="command">git remote -v</span>
+<span class="output">origin  git@github.com:nobita-nobi/school-project.git (fetch)
+origin  git@github.com:nobita-nobi/school-project.git (push)</span></code></pre>
+
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage('github-repo')">Previous: Creating Repository</a>
     <a class="page-nav-btn" onclick="showPage('push-pull')">Next: Push and Pull</a>
   </div>
 </div>
@@ -2522,7 +2784,7 @@ Fast-forward</span>
 <span class="comment"># Everyone stays in sync!</span></code></pre>
   
   <div class="page-nav">
-    <a class="page-nav-btn" onclick="showPage('github-repo')">Previous: Creating Repository</a>
+    <a class="page-nav-btn" onclick="showPage('ssh-setup')">Previous: HTTPS vs SSH</a>
     <a class="page-nav-btn" onclick="showPage('remote-branches')">Next: Remote Branches</a>
   </div>
 </div>
@@ -3028,6 +3290,7 @@ const pages = {
   'github-intro': 'page-github-intro',
   'github-account': 'page-github-account',
   'github-repo': 'page-github-repo',
+  'ssh-setup': 'page-ssh-setup',
   'push-pull': 'page-push-pull',
   'remote-branches': 'page-remote-branches',
   'pull-requests': 'page-pull-requests',
